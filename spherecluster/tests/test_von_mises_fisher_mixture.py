@@ -71,7 +71,7 @@ def test_vmf_log_detect_breakage():
         )
 
     print(breakage_points)
-    assert_array_equal(breakage_points, [141, 420, 311, 3, 3])
+    assert_array_equal(breakage_points, [410, None, None, None, None])
 
 
 def test_maximization():
