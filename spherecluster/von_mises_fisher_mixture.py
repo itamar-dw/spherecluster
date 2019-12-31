@@ -70,11 +70,11 @@ def _vmf_log(X, kappa, mu):
     
 def _vmf_normalize_log(kappa, dim):
     """ Compute normalization constant in log scale, using built-in exp-scaled numpy/scipy Bessel """
-    log_num = (dim / 2. - 1.) * np.log(kappa)
-    if dim / 2. - 1. < 1e-15:
-        log_denom = dim / 2. * np.log(2. * np.pi) + np.log(i0e(kappa)) + kappa
+    log_num = (dim / 2.0 - 1.0) * np.log(kappa)
+    if dim / 2.0 - 1. < 1e-15:
+        log_denom = dim / 2.0 * np.log(2.0 * np.pi) + np.log(i0e(kappa)) + kappa
     else:
-        log_denom = dim / 2. * np.log(2. * np.pi) + np.log(ive(dim / 2. - 1., kappa)) + kappa
+        log_denom = dim / 2.0 * np.log(2.0 * np.pi) + np.log(ive(dim / 2.0 - 1.0, kappa)) + kappa
     
     if np.isinf(log_num):
         raise ValueError("VMF scaling numerator was inf.")
